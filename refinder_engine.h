@@ -1,8 +1,12 @@
+#include <sys/stat.h>
+
 typedef struct File_type
 {
 	struct File_type *next;
-	char file_type;
+	time_t edit_time;
+	off_t file_size;
 	char file_name[261];
+	char file_type;
 }file, *pfile;
 
 #ifndef __REFINDER_ENGINE_H__
@@ -18,6 +22,7 @@ typedef struct File_type
 extern "C" {
 #endif
     DLL_EXPORT pfile __stdcall find(char *workdir, char *pattern);
+    DLL_EXPORT unsigned long long __stdcall return_files_count(void);
 #ifdef __cplusplus
 }
 #endif

@@ -21,7 +21,7 @@ void Next(const char *T, int *next)
 }
 int KMP(const char *S, const char *T)
 {
-    int next[10];
+    int next[261];
     int i = 1;
     int j = 1;
     Next(T, next);
